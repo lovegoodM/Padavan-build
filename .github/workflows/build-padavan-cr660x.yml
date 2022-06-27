@@ -40,6 +40,7 @@ jobs:
     - name: Build Firmware
       env:
         TNAME: CR660x
+        DTS: cr660x.dts
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -47,7 +48,7 @@ jobs:
         exit 1
         fi
         cp -f configs/templates/$TNAME.config .config
-        cp -f $WORKPATH/dts/cr660x.dts linux-4.4.x/arch/mips/boot/dts/ralink/cr660x.dts
+        cp -f $WORKPATH/dts/$DTS linux-4.4.x/arch/mips/boot/dts/ralink/$DTS
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         ################################################################################################
         #因不同型号配置功能不一样，所以先把配置项删除，如果你自己要添加其他的，也要写上删除这一条，切记！！！
