@@ -119,7 +119,7 @@
 
 			partition@brush {
 				label = "Brush";
-				reg = <0x180000 0x7f80000>;
+				reg = <0x180000 0x7e00000>;
 			};
 		};
 	};
